@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Celeste Luxe — Hair Oil · Eliksir koji budi sjaj</title>
+<meta name="description" content="Celeste Luxe Hair Oil — luksuzna formula od 11 hladno ceđenih ulja. Obnavlja, hidrira i daje ogledalski sjaj kosi." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--charcoal);
+  background: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+:root {
+  --cream: #F1E9DB;
+  --cream-deep: #E8DEC8;
+  --ivory: #FAF5EA;
+  --charcoal: #161310;
+  --charcoal-soft: #2A241E;
+  --gold: #B89670;
+  --gold-light: #D4B896;
+  --gold-deep: #96774F;
+  --olive: #7B7350;
+  --shadow: 0 30px 80px -20px rgba(22, 19, 16, 0.25);
+  --shadow-soft: 0 10px 40px -10px rgba(22, 19, 16, 0.15);
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.09 0 0 0 0 0.075 0 0 0 0 0.06 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Loading Screen ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--charcoal);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: loaderFadeOut 0.9s cubic-bezier(0.7, 0, 0.3, 1) 3.6s forwards;
+}
+.loader.hide { pointer-events: none; }
+
+.loader-diamond {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: diamondFade 1s ease-out 0.2s forwards;
+}
+.loader-diamond svg { width: 100%; height: 100%; }
+.loader-diamond path { 
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 1;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawDiamond 1.6s ease-in-out 0.3s forwards;
+}
+
+.loader-name {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: 0.6em;
+  color: var(--gold-light);
+  padding-left: 0.6em;
+  opacity: 0;
+  animation: nameReveal 1.4s cubic-bezier(0.2, 0.8, 0.3, 1) 1s forwards;
+}
+
+.loader-line {
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 28px;
+  animation: lineExpand 1.2s cubic-bezier(0.7, 0, 0.3, 1) 1.8s forwards;
+}
+
+.loader-sub {
+  font-size: 10px;
+  letter-spacing: 0.55em;
+  color: var(--gold);
+  margin-top: 18px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: subFade 0.8s ease-out 2.4s forwards;
+}
+
+@keyframes diamondFade { to { opacity: 1; transform: translateY(0); } }
+@keyframes drawDiamond { to { stroke-dashoffset: 0; } }
+@keyframes nameReveal { 
+  from { opacity: 0; letter-spacing: 0.2em; }
+  to { opacity: 1; letter-spacing: 0.6em; }
+}
+@keyframes lineExpand { to { width: 140px; } }
+@keyframes subFade { to { opacity: 1; } }
+@keyframes loaderFadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* ---------- Staggered content reveal ---------- */
+.reveal { opacity: 0; animation: contentReveal 1s ease-out 3.8s forwards; }
+.reveal-2 { opacity: 0; animation: contentReveal 1s ease-out 4s forwards; }
+.reveal-3 { opacity: 0; animation: contentReveal 1s ease-out 4.2s forwards; }
+.reveal-4 { opacity: 0; animation: contentReveal 1s ease-out 4.4s forwards; }
+
+@keyframes contentReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Navigation ---------- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 22px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(241, 233, 219, 0.7);
+  border-bottom: 1px solid rgba(184, 150, 112, 0.15);
+  transition: padding 0.4s ease;
+}
+nav.compact { padding: 14px 40px; }
+
+.nav-brand {
+  font-family: 'Italiana', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.4em;
+  color: var(--charcoal);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+.nav-links a:hover { color: var(--gold-deep); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: 10px 22px;
+  border: 1px solid var(--charcoal);
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--charcoal);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: -1;
+}
+.nav-cta:hover { color: var(--cream); }
+.nav-cta:hover::before { transform: translateY(0); }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  padding: 140px 40px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero-eyebrow span {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.hero-title {
+  font-family: 'Italiana', serif;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  color: var(--charcoal);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+.hero-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-deep);
+  display: block;
+}
+
+.hero-lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--charcoal-soft);
+  margin-bottom: 40px;
+  max-width: 440px;
+  font-weight: 400;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 16px 36px;
+  background: var(--charcoal);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-deep);
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.btn-primary span { position: relative; z-index: 1; }
+.btn-primary:hover::before { transform: translateX(0); }
+
+.btn-ghost {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  padding: 16px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.btn-ghost::after {
+  content: '→';
+  margin-left: 12px;
+  transition: transform 0.4s ease;
+  display: inline-block;
+}
+.btn-ghost:hover { color: var(--gold-deep); }
+.btn-ghost:hover::after { transform: translateX(6px); }
+
+/* Hero image */
+.hero-image {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--cream-deep);
+}
+.hero-image::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid var(--gold);
+  opacity: 0.5;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+  filter: brightness(0.96) saturate(1.05);
+}
+.hero-image:hover img { transform: scale(1.12); }
+
+.hero-badge {
+  position: absolute;
+  top: 30px;
+  right: -20px;
+  background: var(--charcoal);
+  color: var(--gold-light);
+  padding: 14px 18px;
+  font-family: 'Italiana', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  z-index: 3;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.hero-decor {
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+  .hero-decor { display: none; }
+  .hero-image { aspect-ratio: 4/5; margin-top: 20px; }
+  .hero-badge { right: 10px; top: 20px; }
+}
+
+/* ---------- Marquee Divider ---------- */
+.marquee {
+  padding: 30px 0;
+  background: var(--charcoal);
+  overflow: hidden;
+  border-top: 1px solid var(--gold-deep);
+  border-bottom: 1px solid var(--gold-deep);
+}
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+  color: var(--gold-light);
+  font-family: 'Italiana', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+}
+.marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+}
+.marquee-track span::after {
+  content: '✦';
+  color: var(--gold);
+  margin-left: 60px;
+}
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- Philosophy Section ---------- */
+.philosophy {
+  padding: 140px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.philosophy-image {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+}
+.philosophy-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.1);
+}
+.philosophy-image::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 50%;
+  height: 50%;
+  border: 1px solid var(--gold);
+  z-index: 1;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.section-label::before, .section-label::after {
+  content: '';
+  flex-grow: 0;
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+.section-label::after { flex: 0 0 auto; }
+.section-label.left::after { display: none; }
+
+.section-title {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 32px;
+  color: var(--charcoal);
+  font-weight: 400;
+}
+.section-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-deep);
+}
+
+.section-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--charcoal-soft);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.signature {
+  margin-top: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-deep);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.signature::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .philosophy { grid-template-columns: 1fr; padding: 80px 24px; gap: 50px; }
+}
+
+/* ---------- Ingredients Section ---------- */
+.ingredients {
+  padding: 120px 40px;
+  background: var(--charcoal);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.ingredients::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(184, 150, 112, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(184, 150, 112, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.ingredients-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.ingredients .section-label { color: var(--gold-light); }
+.ingredients .section-label::before,
+.ingredients .section-label::after { background: var(--gold); }
+.ingredients .section-title { color: var(--cream); }
+.ingredients .section-title em { color: var(--gold-light); }
+.ingredients-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(241, 233, 219, 0.75);
+  max-width: 560px;
+  margin-bottom: 80px;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(184, 150, 112, 0.2);
+  border-left: 1px solid rgba(184, 150, 112, 0.2);
+}
+
+.ingredient {
+  padding: 40px 32px;
+  border-right: 1px solid rgba(184, 150, 112, 0.2);
+  border-bottom: 1px solid rgba(184, 150, 112, 0.2);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.5s ease;
+}
+.ingredient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184, 150, 112, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.ingredient:hover::before { opacity: 1; }
+.ingredient:hover { background: rgba(184, 150, 112, 0.04); }
+
+.ingredient-number {
+  font-family: 'Italiana', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  margin-bottom: 18px;
+}
+.ingredient-name {
+  font-family: 'Italiana', serif;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.ingredient-desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(241, 233, 219, 0.55);
+  font-weight: 300;
+}
+
+.ingredient-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+.ingredient:hover .ingredient-arrow { opacity: 1; transform: translateX(4px); }
+
+@media (max-width: 600px) {
+  .ingredients { padding: 80px 24px; }
+  .ingredient { padding: 32px 24px; }
+}
+
+/* ---------- Benefits Section ---------- */
+.benefits {
+  padding: 140px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.benefits-header {
+  text-align: center;
+  margin-bottom: 100px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.benefits-header .section-label {
+  justify-content: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.benefit {
+  padding: 40px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(184, 150, 112, 0.3);
+  position: relative;
+  transition: transform 0.5s ease;
+}
+.benefit:last-child { border-right: none; }
+.benefit:hover { transform: translateY(-6px); }
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  background: var(--cream);
+}
+.benefit:hover .benefit-icon {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  transform: rotate(45deg);
+}
+.benefit-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--gold-deep);
+  transition: stroke 0.5s ease;
+}
+.benefit:hover .benefit-icon svg {
+  stroke: var(--gold-light);
+  transform: rotate(-45deg);
+}
+
+.benefit-title {
+  font-family: 'Italiana', serif;
+  font-size: 1.35rem;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.benefit-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--charcoal-soft);
+}
+
+@media (max-width: 900px) {
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefit { border-bottom: 1px solid rgba(184, 150, 112, 0.3); }
+  .benefit:nth-child(2) { border-right: none; }
+  .benefit:nth-child(3), .benefit:nth-child(4) { border-bottom: none; }
+}
+@media (max-width: 500px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .benefit { border-right: none; border-bottom: 1px solid rgba(184, 150, 112, 0.3); }
+  .benefit:last-child { border-bottom: none; }
+}
+
+/* ---------- Ritual Section ---------- */
+.ritual {
+  padding: 140px 40px;
+  background: var(--cream-deep);
+  position: relative;
+  overflow: hidden;
+}
+.ritual-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 100px;
+  align-items: center;
+}
+.ritual-image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+}
+.ritual-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ritual-image::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(184, 150, 112, 0.6);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(22, 19, 16, 0.12);
+  transition: padding-left 0.4s ease;
+  align-items: start;
+}
+.step:last-child { border-bottom: none; }
+.step:hover { padding-left: 20px; }
+
+.step-num {
+  font-family: 'Italiana', serif;
+  font-size: 3.5rem;
+  color: var(--gold-deep);
+  line-height: 1;
+}
+.step-content h3 {
+  font-family: 'Italiana', serif;
+  font-size: 1.6rem;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.step-content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--charcoal-soft);
+}
+
+@media (max-width: 900px) {
+  .ritual-inner { grid-template-columns: 1fr; gap: 60px; }
+  .ritual { padding: 80px 24px; }
+  .step { grid-template-columns: 60px 1fr; gap: 20px; }
+  .step-num { font-size: 2.5rem; }
+}
+
+/* ---------- Product Showcase (Order) ---------- */
+.showcase {
+  padding: 140px 40px;
+  background: var(--charcoal);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.showcase-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.showcase-image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #2A241E 0%, #161310 100%);
+}
+.showcase-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.showcase-image::before,
+.showcase-image::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  z-index: 2;
+}
+.showcase-image::before {
+  top: 0; left: 0; bottom: 0;
+  width: 1px;
+}
+.showcase-image::after {
+  top: 0; left: 0; right: 0;
+  height: 1px;
+}
+
+.showcase-corners {
+  position: absolute;
+  inset: 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+.showcase-corners::before,
+.showcase-corners::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--gold);
+}
+.showcase-corners::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+.showcase-corners::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.showcase .section-label { color: var(--gold-light); }
+.showcase .section-label::before, 
+.showcase .section-label::after { background: var(--gold); }
+
+.showcase-title {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+.showcase-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+
+.showcase-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(241, 233, 219, 0.75);
+  margin-bottom: 40px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(184, 150, 112, 0.25);
+}
+.price {
+  font-family: 'Italiana', serif;
+  font-size: 3rem;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.price-size {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: rgba(241, 233, 219, 0.6);
+  text-transform: uppercase;
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: 40px;
+}
+.features-list li {
+  padding: 10px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: rgba(241, 233, 219, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.features-list li::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.order-btn {
+  display: inline-block;
+  padding: 18px 44px;
+  background: var(--gold);
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--gold);
+}
+.order-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.order-btn span { position: relative; z-index: 1; }
+.order-btn:hover::before { transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .showcase-inner { grid-template-columns: 1fr; gap: 60px; }
+  .showcase { padding: 80px 24px; }
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+  padding: 140px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.gallery-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.gallery-header .section-label { justify-content: center; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 20px;
+  align-items: stretch;
+}
+.gallery-item {
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  position: relative;
+  cursor: pointer;
+}
+.gallery-item:nth-child(2) { aspect-ratio: 3/4; margin-top: 40px; }
+.gallery-item:nth-child(3) { aspect-ratio: 3/4; margin-top: 80px; }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.gallery-item:hover img { transform: scale(1.08); }
+
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:nth-child(3) { grid-column: span 2; margin-top: 0; }
+  .gallery-item:nth-child(2) { margin-top: 0; }
+  .gallery { padding: 80px 24px; }
+}
+
+/* ---------- Testimonial ---------- */
+.testimonial {
+  padding: 120px 40px;
+  background: var(--cream-deep);
+  text-align: center;
+  position: relative;
+}
+.testimonial-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.quote-mark {
+  font-family: 'Italiana', serif;
+  font-size: 5rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.testimonial blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.5;
+  color: var(--charcoal);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+.testimonial-author {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--charcoal);
+  color: var(--cream);
+  padding: 80px 40px 40px;
+  position: relative;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(184, 150, 112, 0.2);
+}
+
+.footer-brand h3 {
+  font-family: 'Italiana', serif;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.footer-brand p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(241, 233, 219, 0.65);
+  max-width: 320px;
+}
+
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: rgba(241, 233, 219, 0.65);
+  font-weight: 300;
+}
+.footer-col a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-col a:hover { color: var(--gold-light); }
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(241, 233, 219, 0.4);
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  footer { padding: 60px 24px 30px; }
+}
+@media (max-width: 500px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+/* ---------- Scroll-triggered reveals ---------- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.3, 1), transform 1s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-reveal.delay-1 { transition-delay: 0.1s; }
+.scroll-reveal.delay-2 { transition-delay: 0.2s; }
+.scroll-reveal.delay-3 { transition-delay: 0.3s; }
+.scroll-reveal.delay-4 { transition-delay: 0.4s; }
+
+</style>
+</head>
+<body>
+
+<!-- ======== LOADING SCREEN ======== -->
+<div class="loader" id="loader">
+  <div class="loader-diamond">
+    <svg viewBox="0 0 48 48" fill="none">
+      <path d="M24 4 L40 18 L24 44 L8 18 Z M8 18 L40 18 M24 4 L16 18 L24 44 L32 18 L24 4" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="loader-name">CELESTE LUXE</div>
+  <div class="loader-line"></div>
+  <div class="loader-sub">Eliksir koji budi sjaj</div>
+</div>
+
+<!-- ======== NAVIGATION ======== -->
+<nav id="nav">
+  <a href="#" class="nav-brand">CELESTE LUXE</a>
+  <ul class="nav-links">
+    <li><a href="#filozofija">Filozofija</a></li>
+    <li><a href="#sastojci">Sastojci</a></li>
+    <li><a href="#ritual">Ritual</a></li>
+    <li><a href="#narudzba">Naruči</a></li>
+  </ul>
+  <a href="#narudzba" class="nav-cta">Naruči · 2.499 rsd</a>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="hero-decor reveal-4">Collection n°01 · 2026</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">
+      <span>Luksuzno ulje za kosu · 50 ml</span>
+    </div>
+    <h1 class="hero-title reveal-2">
+      Eliksir koji<br>
+      budi <em>sjaj.</em>
+    </h1>
+    <p class="hero-lead reveal-3">
+      Jedanaest hladno ceđenih ulja, sjedinjenih u luksuznu formulu koja obnavlja, hidrira i vraća ogledalski sjaj svakom pramenu.
+    </p>
+    <div class="hero-cta-row reveal-4">
+      <a href="#narudzba" class="btn-primary"><span>Naruči sada</span></a>
+      <a href="#sastojci" class="btn-ghost">Otkrij formulu</a>
+    </div>
+  </div>
+  <div class="hero-image reveal-3">
+    <div class="hero-badge">100% Natural</div>
+    <img src="images/product.jpg" alt="Celeste Luxe Hair Oil — 11 hladno ceđenih ulja">
+  </div>
+</section>
+
+<!-- ======== MARQUEE DIVIDER ======== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Hladno ceđeno</span>
+    <span>Bez sulfata</span>
+    <span>Ručno proizvedeno</span>
+    <span>100% prirodno</span>
+    <span>Bez parabena</span>
+    <span>Hladno ceđeno</span>
+    <span>Bez sulfata</span>
+    <span>Ručno proizvedeno</span>
+    <span>100% prirodno</span>
+    <span>Bez parabena</span>
+  </div>
+</div>
+
+<!-- ======== PHILOSOPHY ======== -->
+<section class="philosophy" id="filozofija">
+  <div class="philosophy-image scroll-reveal">
+    <img src="images/drop.jpg" alt="Tečno zlato — hladno ceđeno ulje">
+  </div>
+  <div>
+    <div class="section-label scroll-reveal left"><span>Naša filozofija</span></div>
+    <h2 class="section-title scroll-reveal delay-1">
+      Tajne prirode,<br>
+      pretočene u <em>eliksir.</em>
+    </h2>
+    <p class="section-text scroll-reveal delay-2">
+      Celeste Luxe rođen je iz uverenja da istinski luksuz dolazi iz prirode. Svaka kap naše formule dolazi iz ulja ceđenih na hladno, bez toplote koja bi narušila njihovu punu aktivnost.
+    </p>
+    <p class="section-text scroll-reveal delay-3">
+      Spajamo drevne rituale nege kose sa savremenom preciznošću — amla, ruzmarin, argan i ricinus rade zajedno, u tačno odmerenoj meri, da bi vratili kosi ono što svakodnevica uzima.
+    </p>
+    <div class="signature scroll-reveal delay-4">Hladno ceđeno. Ručno punjeno. Srcem stvoreno.</div>
+  </div>
+</section>
+
+<!-- ======== INGREDIENTS ======== -->
+<section class="ingredients" id="sastojci">
+  <div class="ingredients-inner">
+    <div class="section-label scroll-reveal left"><span>Jedanaest sastojaka</span></div>
+    <h2 class="section-title scroll-reveal delay-1">
+      Formula koja <em>zrači.</em>
+    </h2>
+    <p class="ingredients-intro scroll-reveal delay-2">
+      Svako ulje bira se ručno, testira se čistoća i komponuje se u preciznu proporciju. Ništa suvišno — samo ono što kosi daje život.
+    </p>
+
+    <div class="ingredients-grid">
+      <div class="ingredient scroll-reveal">
+        <div class="ingredient-number">N° 01</div>
+        <div class="ingredient-name">Amla ulje</div>
+        <div class="ingredient-desc">Drevna indijska tajna za jačanje korena i sprečavanje ispadanja.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-1">
+        <div class="ingredient-number">N° 02</div>
+        <div class="ingredient-name">Ruzmarin</div>
+        <div class="ingredient-desc">Stimuliše cirkulaciju u skalpu i ubrzava rast kose.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-2">
+        <div class="ingredient-number">N° 03</div>
+        <div class="ingredient-name">Ricinusovo</div>
+        <div class="ingredient-desc">Hrani folikule i čini kosu gušćom i jačom.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-3">
+        <div class="ingredient-number">N° 04</div>
+        <div class="ingredient-name">Arganovo</div>
+        <div class="ingredient-desc">Tečno zlato Maroka, pruža dubok sjaj i svilastu teksturu.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal">
+        <div class="ingredient-number">N° 05</div>
+        <div class="ingredient-name">Jojoba ulje</div>
+        <div class="ingredient-desc">Strukturom najsličnije prirodnom sebumu — savršena hidratacija.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-1">
+        <div class="ingredient-number">N° 06</div>
+        <div class="ingredient-name">Karanfilić</div>
+        <div class="ingredient-desc">Antioksidativna snaga koja štiti od oštećenja.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-2">
+        <div class="ingredient-number">N° 07</div>
+        <div class="ingredient-name">Bademovo ulje</div>
+        <div class="ingredient-desc">Bogato vitaminom E — omekšava i čini kosu elastičnom.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-3">
+        <div class="ingredient-number">N° 08</div>
+        <div class="ingredient-name">Ulje avokada</div>
+        <div class="ingredient-desc">Duboka hidratacija koja prodire u samo vlakno kose.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal">
+        <div class="ingredient-number">N° 09</div>
+        <div class="ingredient-name">Ulje slačice</div>
+        <div class="ingredient-desc">Ubrzava cirkulaciju i podstiče bujan rast.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-1">
+        <div class="ingredient-number">N° 10</div>
+        <div class="ingredient-name">Ulje semenke grožđa</div>
+        <div class="ingredient-desc">Lagano, regenerišuće — vraća elastičnost bez opterećenja.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-2">
+        <div class="ingredient-number">N° 11</div>
+        <div class="ingredient-name">Ulje belog luka</div>
+        <div class="ingredient-desc">Moćan sastojak protiv opadanja kose, bogat sumporom.</div>
+        <div class="ingredient-arrow">→</div>
+      </div>
+      <div class="ingredient scroll-reveal delay-3" style="background: rgba(184, 150, 112, 0.06);">
+        <div class="ingredient-number">✦</div>
+        <div class="ingredient-name" style="color: var(--gold-light);">100% hladno ceđeno</div>
+        <div class="ingredient-desc">Bez toplote koja razara — samo čista, živa esencija biljaka.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== BENEFITS ======== -->
+<section class="benefits">
+  <div class="benefits-header">
+    <div class="section-label scroll-reveal" style="justify-content: center;"><span>Rezultati</span></div>
+    <h2 class="section-title scroll-reveal delay-1">
+      Kosa koja <em>diše.</em>
+    </h2>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit scroll-reveal">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2">
+          <path d="M12 3c-4 4-6 8-6 12a6 6 0 0012 0c0-4-2-8-6-12z" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="benefit-title">Hidratacija</div>
+      <p class="benefit-text">Duboko vlaži svako vlakno i vraća prirodni balans.</p>
+    </div>
+    <div class="benefit scroll-reveal delay-1">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2">
+          <path d="M12 2l2 7 7 2-7 2-2 7-2-7-7-2 7-2z" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="benefit-title">Ogledalski sjaj</div>
+      <p class="benefit-text">Kosa dobija blistavu, zdravu površinu koja odbija svetlost.</p>
+    </div>
+    <div class="benefit scroll-reveal delay-2">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2">
+          <path d="M12 20v-8M8 14l4-4 4 4M6 20h12" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="benefit-title">Ubrzan rast</div>
+      <p class="benefit-text">Ruzmarin i slačica bude folikule i podstiču dužinu.</p>
+    </div>
+    <div class="benefit scroll-reveal delay-3">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2">
+          <path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7z" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="benefit-title">Zaštita</div>
+      <p class="benefit-text">Štit od toplote, UV zraka i svakodnevnih oštećenja.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RITUAL ======== -->
+<section class="ritual" id="ritual">
+  <div class="ritual-inner">
+    <div class="ritual-image scroll-reveal">
+      <img src="images/model.jpg" alt="Ritual sa Celeste Luxe uljem">
+    </div>
+    <div>
+      <div class="section-label scroll-reveal left"><span>Ritual</span></div>
+      <h2 class="section-title scroll-reveal delay-1">
+        Tri koraka, <em>beskrajan</em> sjaj.
+      </h2>
+      <div class="steps">
+        <div class="step scroll-reveal delay-2">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Primena</h3>
+            <p>Nanesite 3–5 kapi ulja na dlanove. Lagano zagrejte među prstima da oslobodite arome.</p>
+          </div>
+        </div>
+        <div class="step scroll-reveal delay-3">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Masaža</h3>
+            <p>Kružnim pokretima utrljajte u skalp i rasporedite po dužini — od sredine do vrhova.</p>
+          </div>
+        </div>
+        <div class="step scroll-reveal delay-4">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Odmor</h3>
+            <p>Ostavite da deluje najmanje 30 minuta pre pranja. Preko noći — za dublji rezultat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== TESTIMONIAL ======== -->
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <div class="quote-mark scroll-reveal">"</div>
+    <blockquote class="scroll-reveal delay-1">
+      Posle tri nedelje sam prestala da tražim druge proizvode. Kosa je konačno živa — mekana, sjajna, kakvu nisam imala godinama.
+    </blockquote>
+    <div class="testimonial-author scroll-reveal delay-2">— Milica J. · Beograd</div>
+  </div>
+</section>
+
+<!-- ======== ORDER / SHOWCASE ======== -->
+<section class="showcase" id="narudzba">
+  <div class="showcase-inner">
+    <div class="showcase-image scroll-reveal">
+      <div class="showcase-corners"></div>
+      <img src="images/hair.jpg" alt="Celeste Luxe Hair Oil — 50ml">
+    </div>
+    <div>
+      <div class="section-label scroll-reveal left"><span>Naruči</span></div>
+      <h2 class="showcase-title scroll-reveal delay-1">
+        Celeste Luxe<br>
+        <em>Hair Oil</em>
+      </h2>
+      <p class="showcase-desc scroll-reveal delay-2">
+        Luksuzna staklena bočica od 50 ml. Pipeta koja precizno dozira svaku kap. Dovoljno za 60+ dana rituala.
+      </p>
+      <div class="price-row scroll-reveal delay-3">
+        <div class="price">2.499 <span style="font-size: 1rem; letter-spacing: 0.2em; color: var(--gold);">RSD</span></div>
+        <div class="price-size">50 ml · 60 dana</div>
+      </div>
+      <ul class="features-list scroll-reveal delay-3">
+        <li>Besplatna dostava iznad 3.000 RSD</li>
+        <li>Isporuka 1–3 radna dana</li>
+        <li>Plaćanje pouzećem ili karticom</li>
+        <li>Garancija zadovoljstva 30 dana</li>
+      </ul>
+      <a href="#" class="order-btn scroll-reveal delay-4" onclick="orderClick(event)"><span>Naruči odmah →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>CELESTE LUXE</h3>
+      <p>Luksuzna nega kose proizvedena u malim serijama. Svaka bočica nosi pažnju, rituale i tajne prirode.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Brend</h4>
+      <ul>
+        <li><a href="#filozofija">Filozofija</a></li>
+        <li><a href="#sastojci">Sastojci</a></li>
+        <li><a href="#ritual">Ritual</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Pomoć</h4>
+      <ul>
+        <li><a href="#">Dostava</a></li>
+        <li><a href="#">Povraćaj</a></li>
+        <li><a href="#">Česta pitanja</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Prati</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Celeste Luxe — Sva prava zadržana</div>
+    <div>Napravljeno sa ljubavlju u Srbiji</div>
+  </div>
+</footer>
+
+<script>
+// Loader hide after animation
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+    }, 1000);
+  }, 4500);
+});
+
+// Navigation compact on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) nav.classList.add('compact');
+  else nav.classList.remove('compact');
+});
+
+// Scroll-triggered reveals
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+// Order click handler
+function orderClick(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  const original = btn.querySelector('span').textContent;
+  btn.querySelector('span').textContent = '✓ Hvala — kontaktiraćemo vas';
+  btn.style.pointerEvents = 'none';
+  setTimeout(() => {
+    btn.querySelector('span').textContent = original;
+    btn.style.pointerEvents = 'auto';
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
