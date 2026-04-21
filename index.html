@@ -7,7 +7,7 @@
 <meta name="description" content="Celeste Luxe Hair Oil — luksuzna formula od 11 hladno ceđenih ulja. Obnavlja, hidrira i daje ogledalski sjaj kosi." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=auto" rel="stylesheet">
 <style>
 /* ---------- Reset & Base ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,7 +81,7 @@ body::before {
 
 .loader-name {
   font-family: 'Italiana', serif;
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   letter-spacing: 0.6em;
   color: var(--gold-light);
   padding-left: 0.6em;
@@ -206,6 +206,7 @@ nav.compact { padding: 14px 40px; }
 
 @media (max-width: 768px) {
   nav { padding: 16px 20px; }
+  nav.compact { padding: 12px 20px; }
   .nav-links { display: none; }
 }
 
@@ -382,7 +383,7 @@ nav.compact { padding: 14px 40px; }
 
 /* ---------- Marquee Divider ---------- */
 .marquee {
-  padding: 30px 0;
+  padding: 15px 0;
   background: var(--charcoal);
   overflow: hidden;
   border-top: 1px solid var(--gold-deep);
@@ -390,13 +391,18 @@ nav.compact { padding: 14px 40px; }
 }
 .marquee-track {
   display: flex;
-  gap: 60px;
-  animation: scroll 40s linear infinite;
+  gap: 10px;
+  animation: scroll 7.5s linear infinite;
   white-space: nowrap;
   color: var(--gold-light);
   font-family: 'Italiana', serif;
   font-size: 1.5rem;
   letter-spacing: 0.3em;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
 }
 .marquee-track span {
   display: inline-flex;
@@ -409,7 +415,41 @@ nav.compact { padding: 14px 40px; }
   margin-left: 60px;
 }
 @keyframes scroll {
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
+  .marquee {
+    padding: 12px 0;
+  }
+  .marquee-track {
+    font-size: 1rem;
+    gap: 8px;
+    animation: scroll 6s linear infinite;
+  }
+  .marquee-track span {
+    gap: 40px;
+  }
+  .marquee-track span::after {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .marquee {
+    padding: 10px 0;
+  }
+  .marquee-track {
+    font-size: 0.9rem;
+    gap: 6px;
+    animation: scroll 5.25s linear infinite;
+  }
+  .marquee-track span {
+    gap: 30px;
+  }
+  .marquee-track span::after {
+    margin-left: 30px;
+  }
 }
 
 /* ---------- Philosophy Section ---------- */
@@ -1111,6 +1151,183 @@ footer {
 .scroll-reveal.delay-3 { transition-delay: 0.3s; }
 .scroll-reveal.delay-4 { transition-delay: 0.4s; }
 
+/* ---------- Hamburger Button ---------- */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+  z-index: 210;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--charcoal);
+  transition: transform 0.4s ease, opacity 0.3s ease, background 0.3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  background: var(--cream);
+}
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  background: var(--cream);
+}
+
+/* ---------- Mobile Nav Drawer ---------- */
+.nav-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--charcoal);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1), visibility 0.5s;
+  pointer-events: none;
+  padding: 40px 24px;
+}
+.nav-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-drawer-link {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2.2rem, 9vw, 3rem);
+  letter-spacing: 0.08em;
+  color: rgba(241, 233, 219, 0.7);
+  text-decoration: none;
+  padding: 10px 0;
+  transition: color 0.3s ease, opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-drawer.open .nav-drawer-link {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--cream);
+}
+.nav-drawer.open .nav-drawer-link:nth-child(1) { transition-delay: 0.08s; }
+.nav-drawer.open .nav-drawer-link:nth-child(2) { transition-delay: 0.14s; }
+.nav-drawer.open .nav-drawer-link:nth-child(3) { transition-delay: 0.20s; }
+.nav-drawer.open .nav-drawer-link:nth-child(4) { transition-delay: 0.26s; }
+.nav-drawer-link:hover { color: var(--gold-light); }
+
+.nav-drawer-sep {
+  width: 60px;
+  height: 1px;
+  background: rgba(184, 150, 112, 0.3);
+  margin: 20px 0 16px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s;
+}
+.nav-drawer.open .nav-drawer-sep { opacity: 1; }
+
+.nav-drawer-cta {
+  padding: 14px 40px;
+  border: 1px solid var(--gold);
+  color: var(--gold-light) !important;
+  font-family: 'Jost', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.4em !important;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease 0.32s, transform 0.4s ease 0.32s, background 0.3s ease, color 0.3s ease !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-drawer.open .nav-drawer-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+.nav-drawer-cta:hover {
+  background: var(--gold);
+  color: var(--charcoal) !important;
+}
+
+/* ---------- Mobile-specific improvements ---------- */
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+  .nav-cta { display: none; }
+}
+
+@media (max-width: 900px) {
+  .benefits { padding: 80px 24px; }
+  .benefits-header { margin-bottom: 60px; }
+  .testimonial { padding: 80px 24px; }
+  .philosophy { overflow: hidden; }
+  .philosophy-image::after { display: none; }
+}
+
+@media (max-width: 900px) {
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefit { border-bottom: 1px solid rgba(184, 150, 112, 0.3); }
+  .benefit:nth-child(even) { border-right: none; }
+  .benefit:nth-child(3), .benefit:nth-child(4) { border-bottom: none; }
+}
+
+@media (max-width: 600px) {
+  .hero-cta-row { flex-direction: column; align-items: stretch; gap: 4px; }
+  .btn-primary { width: 100%; padding: 18px 24px; justify-content: center; }
+  .btn-ghost { padding: 14px 0; justify-content: flex-start; }
+  .order-btn { width: 100%; display: flex; justify-content: center; padding: 18px 24px; }
+  .price { font-size: 2.2rem; }
+  .loader-name { letter-spacing: 0.35em; padding-left: 0.35em; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 100px 20px 60px; }
+  .hero-image { aspect-ratio: 1/1; }
+  .ingredients { padding: 60px 20px; }
+  .ingredient { padding: 28px 20px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(2), .gallery-item:nth-child(3) {
+    grid-column: auto;
+    margin-top: 0;
+  }
+  .gallery { padding: 60px 20px; }
+  .step { grid-template-columns: 50px 1fr; gap: 16px; padding: 28px 0; }
+  .step-num { font-size: 2rem; }
+  .step:hover { padding-left: 0; }
+  footer { padding: 50px 20px 30px; }
+  .footer-inner { gap: 30px; }
+  nav { padding: 14px 20px; }
+}
+
+@media (max-width: 380px) {
+  .hero-title { font-size: clamp(2.4rem, 13vw, 3.5rem); }
+  .section-title { font-size: clamp(2rem, 11vw, 2.5rem); }
+  .showcase-title { font-size: clamp(2rem, 11vw, 2.5rem); }
+}
+
+/* Touch target improvements */
+.btn-primary, .btn-ghost, .order-btn, .nav-cta, .nav-drawer-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ghost { display: inline-flex; }
+.nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+
 </style>
 </head>
 <body>
@@ -1137,7 +1354,20 @@ footer {
     <li><a href="#narudzba">Naruči</a></li>
   </ul>
   <a href="#narudzba" class="nav-cta">Naruči · 2.499 rsd</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Navigacija">
+  <a href="#filozofija" class="nav-drawer-link">Filozofija</a>
+  <a href="#sastojci" class="nav-drawer-link">Sastojci</a>
+  <a href="#ritual" class="nav-drawer-link">Ritual</a>
+  <div class="nav-drawer-sep"></div>
+  <a href="#narudzba" class="nav-drawer-link nav-drawer-cta">Naruči · 2.499 RSD</a>
+</div>
 
 <!-- ======== HERO ======== -->
 <section class="hero">
@@ -1167,6 +1397,11 @@ footer {
 <!-- ======== MARQUEE DIVIDER ======== -->
 <div class="marquee">
   <div class="marquee-track">
+    <span>Hladno ceđeno</span>
+    <span>Bez sulfata</span>
+    <span>Ručno proizvedeno</span>
+    <span>100% prirodno</span>
+    <span>Bez parabena</span>
     <span>Hladno ceđeno</span>
     <span>Bez sulfata</span>
     <span>Ručno proizvedeno</span>
@@ -1484,6 +1719,27 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+// Mobile hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = !navDrawer.classList.contains('open');
+  navDrawer.classList.toggle('open', isOpen);
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+navDrawer.querySelectorAll('.nav-drawer-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navDrawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
 
 // Order click handler
 function orderClick(e) {
