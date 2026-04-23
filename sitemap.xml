@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://celesteluxe-hair.com/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="sr-Latn-RS" href="https://celesteluxe-hair.com/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://celesteluxe-hair.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://celesteluxe-hair.com/"/>
+    <image:image>
+      <image:loc>https://celesteluxe-hair.com/assets/hero-model.jpeg</image:loc>
+      <image:title>Celeste Luxe — Luksuzno ulje za kosu</image:title>
+      <image:caption>Model sa sjajnom, zdravom kosom nakon primene Celeste Luxe ulja.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://celesteluxe-hair.com/assets/bottle-hair.jpeg</image:loc>
+      <image:title>Celeste Luxe Hair Oil — bočica 50ml</image:title>
+      <image:caption>Luksuzno ulje od 9 hladno ceđenih prirodnih ulja, 50 ml.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://celesteluxe-hair.com/assets/bottle-ingredients.jpeg</image:loc>
+      <image:title>Celeste Luxe — sastojci</image:title>
+      <image:caption>Amla, karanfilić, ruzmarin, bademovo, ricinus, avokado, argan, slačica, jojoba i semenke grožđa.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://celesteluxe-hair.com/assets/oil-drop.jpeg</image:loc>
+      <image:title>Celeste Luxe — tekstura ulja</image:title>
+      <image:caption>Zlatna, bistra tečnost koja se upija trenutno.</image:caption>
+    </image:image>
+  </url>
+</urlset>

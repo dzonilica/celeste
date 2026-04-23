@@ -1,13 +1,81 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="sr-Latn-RS">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Celeste Luxe — Luksuzno ulje za kosu</title>
-<meta name="description" content="Celeste Luxe — luksuzno ulje za kosu od devet hladno ceđenih prirodnih ulja. Ručno pravljeno. Naručite preko Instagrama." />
 
+<!-- ============ PRIMARY SEO ============ -->
+<title>Celeste Luxe — Luksuzno ulje za kosu | 9 hladno ceđenih prirodnih ulja</title>
+<meta name="description" content="Celeste Luxe — ručno pravljeno luksuzno ulje za kosu od devet hladno ceđenih prirodnih ulja (amla, ricinus, argan, ruzmarin…). Bez parabena, silikona i veštačkih dodataka. Naručite preko Instagrama, dostava širom Srbije." />
+<meta name="keywords" content="ulje za kosu, prirodno ulje za kosu, hladno ceđeno ulje, luksuzno ulje za kosu, Celeste Luxe, ulje za rast kose, amla ulje, ricinusovo ulje, arganovo ulje, ulje protiv opadanja kose, hair oil Srbija, prirodna kozmetika, hair oil" />
+<meta name="author" content="Celeste Luxe" />
+<meta name="publisher" content="Celeste Luxe" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+<meta name="rating" content="general" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="theme-color" content="#1A1612" />
+<meta name="color-scheme" content="light" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Celeste Luxe" />
+<meta name="application-name" content="Celeste Luxe" />
+<meta name="msapplication-TileColor" content="#1A1612" />
+
+<!-- ============ GEO / LOCALE ============ -->
+<meta name="geo.region" content="RS" />
+<meta name="geo.placename" content="Srbija" />
+<meta name="ICBM" content="44.7866, 20.4489" />
+<meta http-equiv="content-language" content="sr-Latn-RS" />
+
+<!-- ============ CANONICAL & ALTERNATES ============ -->
+<link rel="canonical" href="https://celesteluxe-hair.com/" />
+<link rel="alternate" hreflang="sr-Latn-RS" href="https://celesteluxe-hair.com/" />
+<link rel="alternate" hreflang="sr" href="https://celesteluxe-hair.com/" />
+<link rel="alternate" hreflang="x-default" href="https://celesteluxe-hair.com/" />
+
+<!-- ============ OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ============ -->
+<meta property="og:type" content="product" />
+<meta property="og:locale" content="sr_RS" />
+<meta property="og:site_name" content="Celeste Luxe" />
+<meta property="og:title" content="Celeste Luxe — Luksuzno ulje za kosu" />
+<meta property="og:description" content="Ručno pravljeno luksuzno ulje za kosu od 9 hladno ceđenih prirodnih ulja. Vraća sjaj, gustinu i snagu — bez silikona i parabena." />
+<meta property="og:url" content="https://celesteluxe-hair.com/" />
+<meta property="og:image" content="https://celesteluxe-hair.com/assets/hero-model.jpeg" />
+<meta property="og:image:secure_url" content="https://celesteluxe-hair.com/assets/hero-model.jpeg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="Celeste Luxe — luksuzno ulje za kosu od 9 hladno ceđenih prirodnih ulja" />
+
+<!-- Product specific OG -->
+<meta property="product:brand" content="Celeste Luxe" />
+<meta property="product:availability" content="in stock" />
+<meta property="product:condition" content="new" />
+<meta property="product:price:amount" content="2490" />
+<meta property="product:price:currency" content="RSD" />
+<meta property="product:retailer_item_id" content="CLX-HO-50" />
+<meta property="og:price:amount" content="2490" />
+<meta property="og:price:currency" content="RSD" />
+
+<!-- ============ TWITTER / X ============ -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Celeste Luxe — Luksuzno ulje za kosu" />
+<meta name="twitter:description" content="Ručno pravljeno luksuzno ulje za kosu od 9 hladno ceđenih prirodnih ulja. Vraća sjaj, gustinu i snagu." />
+<meta name="twitter:image" content="https://celesteluxe-hair.com/assets/hero-model.jpeg" />
+<meta name="twitter:image:alt" content="Celeste Luxe luksuzno ulje za kosu" />
+
+<!-- ============ FAVICON / PWA ============ -->
+<link rel="icon" type="image/png" sizes="150x150" href="logo.png" />
+<link rel="shortcut icon" type="image/png" href="logo.png" />
+<link rel="apple-touch-icon" sizes="150x150" href="logo.png" />
+<link rel="manifest" href="site.webmanifest" />
+
+<!-- ============ PERFORMANCE / RESOURCE HINTS ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://instagram.com" />
+<link rel="preload" as="image" href="assets/hero-model.jpeg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
@@ -832,9 +900,256 @@
   .reveal.delay-1{transition-delay:.1s}
   .reveal.delay-2{transition-delay:.2s}
   .reveal.delay-3{transition-delay:.3s}
+
+  /* Skip-to-content link (a11y + SEO) */
+  .skip-link{
+    position:absolute;left:-9999px;top:0;
+    background:var(--ink);color:var(--bg);
+    padding:12px 18px;font-size:14px;
+    z-index:200;
+  }
+  .skip-link:focus{left:16px;top:16px}
 </style>
+
+<!-- ============ JSON-LD STRUCTURED DATA ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://celesteluxe-hair.com/#organization",
+      "name": "Celeste Luxe",
+      "alternateName": "Celeste Luxe Haircare",
+      "url": "https://celesteluxe-hair.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://celesteluxe-hair.com/logo.png",
+        "width": "150",
+        "height": "150"
+      },
+      "image": "https://celesteluxe-hair.com/assets/bottle-hair.jpeg",
+      "description": "Ručno pravljena luksuzna prirodna kozmetika — ulje za kosu od devet hladno ceđenih biljnih ulja, proizvedeno u malim serijama u Srbiji.",
+      "foundingDate": "2024",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Srbija"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://instagram.com/celesteluxe_haircare",
+        "availableLanguage": ["Serbian", "sr-Latn-RS"]
+      },
+      "sameAs": [
+        "https://instagram.com/celesteluxe_haircare"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://celesteluxe-hair.com/#website",
+      "url": "https://celesteluxe-hair.com/",
+      "name": "Celeste Luxe",
+      "description": "Luksuzno ulje za kosu od devet hladno ceđenih prirodnih ulja.",
+      "publisher": { "@id": "https://celesteluxe-hair.com/#organization" },
+      "inLanguage": "sr-Latn-RS"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://celesteluxe-hair.com/#webpage",
+      "url": "https://celesteluxe-hair.com/",
+      "name": "Celeste Luxe — Luksuzno ulje za kosu",
+      "isPartOf": { "@id": "https://celesteluxe-hair.com/#website" },
+      "about": { "@id": "https://celesteluxe-hair.com/#product" },
+      "primaryImageOfPage": "https://celesteluxe-hair.com/assets/hero-model.jpeg",
+      "inLanguage": "sr-Latn-RS",
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-04-23"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://celesteluxe-hair.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Početna",
+          "item": "https://celesteluxe-hair.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hair Oil",
+          "item": "https://celesteluxe-hair.com/#proizvod"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://celesteluxe-hair.com/#product",
+      "name": "Celeste Luxe Hair Oil",
+      "image": [
+        "https://celesteluxe-hair.com/assets/bottle-hair.jpeg",
+        "https://celesteluxe-hair.com/assets/hero-model.jpeg",
+        "https://celesteluxe-hair.com/assets/bottle-ingredients.jpeg",
+        "https://celesteluxe-hair.com/assets/oil-drop.jpeg"
+      ],
+      "description": "Ručno pravljeno luksuzno ulje za kosu od devet hladno ceđenih prirodnih ulja: amla, karanfilić, ruzmarin, badem, ricinus, avokado, argan, slačica, jojoba i semenke grožđa. Bez parabena, silikona i veštačkih dodataka.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Celeste Luxe"
+      },
+      "manufacturer": { "@id": "https://celesteluxe-hair.com/#organization" },
+      "sku": "CLX-HO-50",
+      "mpn": "CLX-HO-50ML",
+      "category": "Beauty > Hair Care > Hair Oil",
+      "audience": {
+        "@type": "PeopleAudience",
+        "suggestedGender": "female"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Zapremina", "value": "50 ml" },
+        { "@type": "PropertyValue", "name": "Aktivnih ulja", "value": "9" },
+        { "@type": "PropertyValue", "name": "Trajanje", "value": "~2 meseca" },
+        { "@type": "PropertyValue", "name": "Bez parabena", "value": "Da" },
+        { "@type": "PropertyValue", "name": "Bez silikona", "value": "Da" },
+        { "@type": "PropertyValue", "name": "Veganski", "value": "Da" }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://instagram.com/celesteluxe_haircare",
+        "priceCurrency": "RSD",
+        "price": "2490",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": { "@id": "https://celesteluxe-hair.com/#organization" },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Srbija"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "RSD"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "RS"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            }
+          }
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "312",
+        "reviewCount": "312"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Milica Jovanović"
+          },
+          "datePublished": "2026-03-15",
+          "reviewBody": "Posle dva meseca primene, moja kosa je drastično gušća i sjajnija. Konačno sam pronašla ulje koje se ne oseća masno i ne težaši kosu."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://celesteluxe-hair.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kako se koristi Celeste Luxe ulje za kosu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nanesite 3–5 kapi na suvu kosu od korena do vrhova, masirajte kožu glave 2–3 minuta kružnim pokretima i ostavite najmanje 30 minuta, ili preko noći za dubinski tretman. Zatim operite blagim šamponom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Od kojih je sastojaka napravljeno Celeste Luxe ulje?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mešavina devet hladno ceđenih biljnih ulja: amla, karanfilić, ruzmarin, bademovo, ricinusovo, avokado, arganovo, ulje slačice, jojoba i semenke grožđa. Bez parabena, silikona, veštačkih mirisa i boja."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Da li ulje težaši ili masti kosu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ne. Celeste Luxe je laka, brzo upijajuća tečnost — dovoljno je svega nekoliko kapi. Kosa ostaje sjajna, mekana i lagana, bez masnog filma."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kada se vide prvi rezultati?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prve promene — sjaj i mekoću — videćete već posle prve nedelje primene. Vidljivo gušća i jača kosa dolazi nakon 4–8 nedelja redovne primene."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Koliko traje jedna bočica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jedna bočica od 50 ml traje otprilike 2 meseca uz redovnu primenu 2–3 puta nedeljno."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kako mogu da naručim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Naručivanje ide preko našeg Instagram profila @celesteluxe_haircare. Odgovaramo u roku od nekoliko minuta i šaljemo istog dana za porudžbine do 14h. Dostava je besplatna širom Srbije."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Koliko košta dostava?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dostava je besplatna za sve porudžbine širom Srbije. Pošiljka stiže u roku od 24–48 sati."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#proizvod">Pređi na proizvod</a>
 
 <!-- Instagram SVG shared -->
 <svg style="display:none">
@@ -848,33 +1163,37 @@
   </symbol>
 </svg>
 
-<!-- ============ NAV ============ -->
-<nav id="nav">
+<!-- ============ HEADER / NAV ============ -->
+<header>
+<nav id="nav" aria-label="Glavna navigacija">
   <div class="nav-inner">
-    <a href="#" class="logo"><span class="logo-mark"></span>Celeste Luxe</a>
+    <a href="#" class="logo" aria-label="Celeste Luxe — početna"><span class="logo-mark" aria-hidden="true"></span>Celeste Luxe</a>
     <ul class="nav-links">
       <li><a href="#proizvod">Proizvod</a></li>
       <li><a href="#sastojci">Sastojci</a></li>
       <li><a href="#primena">Primena</a></li>
       <li><a href="#recenzije">Recenzije</a></li>
     </ul>
-    <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener" class="nav-ig">
-      <svg class="ig-icon" viewBox="0 0 24 24"><use href="#ig"/></svg>
+    <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer" class="nav-ig" aria-label="Naruči preko Instagrama (otvara se u novom prozoru)">
+      <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#ig"/></svg>
       Naruči
     </a>
   </div>
 </nav>
+</header>
+
+<main id="main">
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">Ručno pravljeno · Prirodno</span>
-        <h1>Priroda, <em>u svakoj</em><br/>kapi.</h1>
+        <h1 id="hero-title">Priroda, <em>u svakoj</em><br/>kapi.</h1>
         <p class="lead">Celeste Luxe je mešavina devet hladno ceđenih biljnih ulja — stvorena da vratite kosi sjaj, gustinu i snagu. Bez silikona, bez parabena, bez kompromisa.</p>
         <div class="hero-cta">
-          <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener" class="btn">
+          <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer" class="btn">
             <svg class="ig-icon" viewBox="0 0 24 24"><use href="#ig"/></svg>
             Naruči preko Instagrama
           </a>
@@ -889,7 +1208,7 @@
 
       <div class="hero-visual">
         <span class="hero-badge">Limitirana serija</span>
-        <img src="assets/hero-model.jpeg" alt="Celeste Luxe ulje za kosu" />
+        <img src="assets/hero-model.jpeg" alt="Celeste Luxe luksuzno ulje za kosu — model sa sjajnom, zdravom kosom nakon primene" width="800" height="1000" loading="eager" fetchpriority="high" decoding="async" />
         <div class="hero-price-card">
           <span class="label">Cena</span>
           <strong>2.490 rsd</strong>
@@ -919,7 +1238,7 @@
 </div>
 
 <!-- ============ PRODUCT (dark) ============ -->
-<section class="product" id="proizvod">
+<section class="product" id="proizvod" aria-labelledby="product-title">
   <div class="container">
     <div class="product-grid">
       <div class="product-visual reveal">
@@ -930,12 +1249,12 @@
           <circle class="ring" cx="70" cy="70" r="62"/>
           <text><textPath href="#circle">CELESTE LUXE · HAIR OIL · 50ML · HLADNO CEĐENO · </textPath></text>
         </svg>
-        <img src="assets/bottle-hair.jpeg" alt="Celeste Luxe Hair Oil"/>
+        <img src="assets/bottle-hair.jpeg" alt="Bočica Celeste Luxe Hair Oil — luksuzno ulje od 9 hladno ceđenih prirodnih ulja, 50 ml" width="800" height="800" loading="lazy" decoding="async"/>
       </div>
 
       <div class="product-copy reveal delay-1">
         <span class="eyebrow">Proizvod</span>
-        <h2>Celeste Luxe<br/><em>Hair Oil</em></h2>
+        <h2 id="product-title">Celeste Luxe<br/><em>Hair Oil</em></h2>
         <p class="desc">Naša autorska mešavina — ulje koje se ne oseća masno, upija se za nekoliko minuta, a rezultati se vide već posle prve nedelje primene. Dovoljno je nekoliko kapi da kosa dobije novi život.</p>
 
         <div class="product-specs">
@@ -946,7 +1265,7 @@
 
         <div class="stars-row">
           <span class="stars">★★★★★</span>
-          <span class="stars-label">312 zadovoljnih klijentkinja</span>
+          <span class="stars-label">312 zadovoljnih klijenata</span>
         </div>
 
         <div class="product-buy">
@@ -954,7 +1273,7 @@
             <strong>2.490 RSD</strong>
             <span>Besplatna dostava</span>
           </div>
-          <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener" class="btn btn-gold">
+          <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
             <svg class="ig-icon" viewBox="0 0 24 24"><use href="#ig"/></svg>
             Naruči preko Instagrama
           </a>
@@ -965,12 +1284,12 @@
 </section>
 
 <!-- ============ FEATURES ============ -->
-<section class="features">
+<section class="features" aria-labelledby="features-title">
   <div class="container">
     <div class="features-head reveal">
       <div>
         <span class="eyebrow">Naša obećanja</span>
-        <h2>Luksuz koji <em>kosa</em> prepoznaje.</h2>
+        <h2 id="features-title">Luksuz koji <em>kosa</em> prepoznaje.</h2>
       </div>
       <p>Svaka boca prolazi kroz ruke naše male porodične proizvodnje. Bez masovne proizvodnje — samo čista ulja, pažljivo mešana u malim serijama.</p>
     </div>
@@ -1021,16 +1340,16 @@
 </section>
 
 <!-- ============ INGREDIENTS ============ -->
-<section class="ingredients" id="sastojci">
+<section class="ingredients" id="sastojci" aria-labelledby="ingredients-title">
   <div class="container">
     <div class="ingredients-inner">
       <div class="ingredients-visual reveal">
-        <img src="assets/bottle-ingredients.jpeg" alt="Celeste Luxe — svih devet ulja"/>
+        <img src="assets/bottle-ingredients.jpeg" alt="Celeste Luxe ulje za kosu — sastojci: amla, karanfilić, ruzmarin, bademovo, ricinus, avokado, argan, slačica, jojoba i semenke grožđa" width="800" height="1000" loading="lazy" decoding="async"/>
       </div>
 
       <div class="ingredients-copy reveal delay-1">
         <span class="eyebrow">Formula</span>
-        <h2>Devet ulja. <em>Jedan ritual.</em></h2>
+        <h2 id="ingredients-title">Devet ulja. <em>Jedan ritual.</em></h2>
         <p>Svaki sastojak ima svoju ulogu — amla jača koren, ricinus podstiče rast, argan vraća sjaj. Zajedno, rade kao mali tretman u svakoj kapi.</p>
 
         <div class="ingredient-list">
@@ -1051,18 +1370,18 @@
 </section>
 
 <!-- ============ LIFESTYLE / VIDEO ============ -->
-<section class="lifestyle">
+<section class="lifestyle" aria-labelledby="lifestyle-title">
   <div class="container">
     <div class="lifestyle-grid">
       <div class="lifestyle-media reveal">
-        <video autoplay muted loop playsinline poster="assets/oil-drop.jpeg">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/oil-drop.jpeg" aria-label="Tekstura Celeste Luxe ulja za kosu — zlatna tečnost koja se upija trenutno">
           <source src="assets/product.mp4" type="video/mp4"/>
-          <img src="assets/oil-drop.jpeg" alt="Celeste Luxe ulje"/>
+          <img src="assets/oil-drop.jpeg" alt="Celeste Luxe luksuzno ulje za kosu — kap zlatnog ulja u detaljnom prikazu teksture" width="800" height="1000" loading="lazy" decoding="async"/>
         </video>
       </div>
       <div class="lifestyle-content reveal delay-1">
         <span class="eyebrow">Teksturа</span>
-        <h2>Lagano kao <em>voda.</em> Hranljivo kao ulje.</h2>
+        <h2 id="lifestyle-title">Lagano kao <em>voda.</em> Hranljivo kao ulje.</h2>
         <p>Mnogobrojna ulja koja postoje na tržištu ostavljaju kosu masnom i težakom. Celeste Luxe je drugačiji — zlatna, bistra tečnost koja se upija gotovo trenutno, ostavljajući iza sebe samo sjaj i prijatan miris.</p>
         <p>Hladno ceđena ulja zadržavaju svoje vitamine, minerale i esencijalne masne kiseline — hrana za svaki centimetar tvoje kose.</p>
         <div class="lifestyle-quote">
@@ -1074,11 +1393,11 @@
 </section>
 
 <!-- ============ PROCESS / PRIMENA ============ -->
-<section class="process" id="primena">
+<section class="process" id="primena" aria-labelledby="process-title">
   <div class="container">
     <div class="process-head reveal">
       <span class="eyebrow center">Primena</span>
-      <h2>Ritual koji traje <em>pet minuta</em>, a deluje danima.</h2>
+      <h2 id="process-title">Ritual koji traje <em>pet minuta</em>, a deluje danima.</h2>
     </div>
 
     <div class="process-steps reveal">
@@ -1102,11 +1421,11 @@
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
-<section class="testimonials" id="recenzije">
+<section class="testimonials" id="recenzije" aria-labelledby="reviews-title">
   <div class="container">
     <div class="testimonials-inner reveal">
-      <span class="eyebrow center">Iskustva</span>
-      <div class="testimonial-mark" style="margin-top:28px">❝</div>
+      <h2 id="reviews-title" class="eyebrow center" style="margin:0">Iskustva</h2>
+      <div class="testimonial-mark" style="margin-top:28px" aria-hidden="true">❝</div>
       <blockquote>Posle dva meseca primene, moja kosa je drastično <em>gušća i sjajnija.</em> Konačno sam pronašla ulje koje se ne oseća masno i ne težaši kosu.</blockquote>
       <div class="t-stars">★★★★★</div>
       <div class="testimonial-author"><strong>Milica Jovanović</strong> &nbsp;·&nbsp; Beograd &nbsp;·&nbsp; verifikovana kupovina</div>
@@ -1115,12 +1434,12 @@
 </section>
 
 <!-- ============ FINAL CTA (Instagram) ============ -->
-<section class="cta-final">
+<section class="cta-final" aria-labelledby="cta-title">
   <div class="container reveal">
     <span class="eyebrow center">Počni svoj ritual</span>
-    <h2>Tvoja kosa, <em>ponovo živa.</em></h2>
+    <h2 id="cta-title">Tvoja kosa, <em>ponovo živa.</em></h2>
     <p>Poruči preko Instagrama — odgovaramo u roku od nekoliko minuta i šaljemo istog dana.</p>
-    <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener" class="btn btn-light">
+    <a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer" class="btn btn-light">
       <svg class="ig-icon" viewBox="0 0 24 24"><use href="#ig"/></svg>
       Naruči na Instagramu
     </a>
@@ -1128,8 +1447,10 @@
   </div>
 </section>
 
+</main>
+
 <!-- ============ FOOTER ============ -->
-<footer>
+<footer role="contentinfo">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -1148,16 +1469,16 @@
       <div class="footer-col">
         <h4>Porudžbina</h4>
         <ul>
-          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener">Naruči</a></li>
-          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener">Dostava</a></li>
-          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener">Kontakt</a></li>
+          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer">Naruči</a></li>
+          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer">Dostava</a></li>
+          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Prati nas</h4>
         <ul>
-          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://instagram.com/celesteluxe_haircare" target="_blank" rel="noopener noreferrer">TikTok</a></li>
         </ul>
       </div>
     </div>
